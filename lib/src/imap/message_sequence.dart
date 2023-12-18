@@ -59,11 +59,11 @@ class MessageSequence {
   /// Convenience method for getting the sequence for the given [messages]'s
   /// UIDs or sequence IDs.
   MessageSequence.fromMessages(List<MimeMessage> messages)
-      : isUidSequence = messages.isNotEmpty && messages.first.uid != null {
+      : isUidSequence = messages.isNotEmpty && messages.first.sequenceId != null {
     if (isUidSequence) {
-      messages.forEach(addUid);
+       messages.forEach(addSequenceId);
     } else {
-      messages.forEach(addSequenceId);
+       messages.forEach(addUid);
     }
   }
 
